@@ -3,7 +3,7 @@ const cors = require("cors");
 const cohorts = require('./data/cohorts')
 
 
-function findById(data, id) {
+function getObjectById(data, id) {
   for (let i = 0; i < data.length; i++) {
     if (data[i].id == id) {
       return data[i];
@@ -22,7 +22,7 @@ app.get("/", function(request, response) {
 });
 
 app.get("/:id", function(request, response) {
-  var record = findById(cohorts, request.params.id);
+  var record = getObjectById(cohorts, request.params.id);
   if (!record) {
     response.status = 404;
     response.json({
@@ -31,7 +31,6 @@ app.get("/:id", function(request, response) {
       }
     });
   }
-
   response.json({
     data: record
   });

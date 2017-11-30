@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const cohorts = require('./data/cohorts')
+const cohorts = require("./data/cohorts");
 
 
 function getObjectById(data, id) {
@@ -36,4 +36,4 @@ app.get("/:id", function(request, response) {
   });
 });
 
-app.listen(process.env.PORT || 3000)
+app.listen(process.env.PORT || 3000);
